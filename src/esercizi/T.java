@@ -74,4 +74,24 @@ public class T {
             System.out.println(e.getMessage());
         }
     }
+
+    public void sottraiOrario(int ore, int minuti, int secondi){
+        this.ore = this.ore - ore;
+        if(this.ore < 0){
+            this.ore = 24 + this.ore;
+        }
+
+        this.minuti = this.minuti - minuti;
+        if(this.minuti < 0){
+            this.ore -= 1;
+            this.minuti = 60 + this.minuti;
+        }
+
+        this.secondi = this.secondi - secondi;
+        if(this.secondi < 0){
+            this.minuti -= 1;
+            this.secondi = 60 + this.secondi;
+        }
+
+    }
 }
