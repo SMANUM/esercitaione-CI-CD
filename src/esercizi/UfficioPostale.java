@@ -15,6 +15,7 @@ public class UfficioPostale {
         this.lettere = lettere;
     }
 
+
     public void aggiungiLettera(Lettera lett){
         for(int i = 0; i < lettere.length; i++){
             if(lettere[i] == null){
@@ -30,5 +31,16 @@ public class UfficioPostale {
         }
 
         return toSave;
+
+    public int contaLetterePerDesƟnatario (String nome, String cognome){
+        int i = 0;
+        for (Lettera let: lettere){
+            if (let.getNomeDestinatario().equals(nome) &&
+                 let.getCognomeDestinatario().equals(cognome)){
+                i++;
+            }
+        }
+        return i;
+
     }
 }
