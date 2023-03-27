@@ -23,5 +23,17 @@ public class Applicazione {
             listaLettere[i] = lett;
             i ++;
         }
+
+        ufficio.setLettere(listaLettere);
+
+        System.out.println("Inserisci un nome destinatario da " +
+                "controllare: ");
+        String nome = scan.nextLine();
+        System.out.println("Inserisci un cognome destinatario da " +
+                "controllare: ");
+        String cognome = scan.nextLine();
+
+        System.out.println(ufficio.contaLetterePerDesƟnatario(nome, cognome));
+
     }
 }
