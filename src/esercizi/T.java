@@ -10,9 +10,19 @@ public class T {
     }
 
     public T(int ore, int minuti, int secondi){
-        this.ore = ore;
-        this.minuti = minuti;
-        this.secondi = secondi;
+        try{
+            if(ore < 0 || ore > 24 || minuti < 0 ||
+                    minuti > 60 || secondi <0 || secondi >60){
+                throw new Exception("Inserisci un orario valido");
+            }
+            this.ore = ore;
+            this.minuti = minuti;
+            this.secondi = secondi;
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
     }
 
     public int getOre() {
@@ -35,7 +45,7 @@ public class T {
             this.ore = ore;
         }
         catch (Exception e){
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
 
     }
@@ -48,7 +58,7 @@ public class T {
             this.minuti = minuti;
         }
         catch (Exception e){
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
 
     }
@@ -61,7 +71,7 @@ public class T {
             this.secondi = secondi;
         }
         catch (Exception e){
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
     }
 }
