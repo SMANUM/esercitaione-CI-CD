@@ -11,8 +11,8 @@ public class T {
 
     public T(int ore, int minuti, int secondi){
         try{
-            if(ore < 0 || ore > 24 || minuti < 0 ||
-                    minuti > 60 || secondi <0 || secondi >60){
+            if(ore < 0 || ore > 23 || minuti < 0 ||
+                    minuti > 59 || secondi <0 || secondi >59){
                 throw new Exception("Inserisci un orario valido");
             }
             this.ore = ore;
@@ -39,8 +39,8 @@ public class T {
 
     public void setOre(int ore) {
         try{
-            if(ore < 0 || ore > 24){
-                throw new Exception("Inserisci un numero tra 0 e 24");
+            if(ore < 0 || ore > 23){
+                throw new Exception("Inserisci un numero tra 0 e 23");
             }
             this.ore = ore;
         }
@@ -52,8 +52,8 @@ public class T {
 
     public void setMinuti(int minuti) {
         try{
-            if(minuti < 0 || minuti > 60){
-                throw new Exception("Inserisci un numero tra 0 e 60");
+            if(minuti < 0 || minuti > 59){
+                throw new Exception("Inserisci un numero tra 0 e 59");
             }
             this.minuti = minuti;
         }
@@ -65,8 +65,8 @@ public class T {
 
     public void setSecondi(int secondi) {
         try{
-            if(secondi < 0 || secondi > 60){
-                throw new Exception("Inserisci un numero tra 0 e 60");
+            if(secondi < 0 || secondi > 59){
+                throw new Exception("Inserisci un numero tra 0 e 59");
             }
             this.secondi = secondi;
         }
@@ -92,6 +92,27 @@ public class T {
             this.minuti -= 1;
             this.secondi = 60 + this.secondi;
         }
+
+
+    public void aggiungiOrario(int ore, int minuti, int secondi) throws IllegalArgumentException {
+        if (minuti < 0 || minuti > 59 || secondi < 0 || secondi > 59) {
+            throw new IllegalArgumentException("Orario non valido.");
+        }
+        int aggiungi_secondi = this.secondi + secondi;
+        int aggiungi_minuti = this.minuti + minuti;
+        int aggiungi_ore = this.ore + ore;
+        if (aggiungi_secondi >= 60) {
+            aggiungi_secondi = aggiungi_secondi - 60;
+            aggiungi_minuti++;
+        }
+        if (aggiungi_minuti >= 60) {
+            aggiungi_minuti = aggiungi_minuti - 60;
+            aggiungi_ore++;
+        }
+        aggiungi_ore = aggiungi_ore % 24;
+        this.ore = aggiungi_ore;
+        this.minuti = aggiungi_minuti;
+        this.secondi = aggiungi_secondi;
 
     }
 }
