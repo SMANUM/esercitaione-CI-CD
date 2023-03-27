@@ -30,5 +30,16 @@ public class Corso {
         this.esami = esami;
     }
 
+    public ArrayList<String> studentiPeggiori(){
+        int votoMinimo = 21;
+        ArrayList<String> cognomiPeggiori = new ArrayList<String>();
+        for(int i = 0; i < esami.size(); i ++){
+            Esame esame = esami.get(i);
+            if(esame.getVoto() == votoMinimo){
+                cognomiPeggiori.add(esame.getCognome());
+            } 
+        }
+    }
+
 
 }
