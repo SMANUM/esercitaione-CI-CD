@@ -32,16 +32,19 @@ public class Corso {
 
     public int votoMinimo() {
         int minimo;
+
+        minimo = esami.get(0).getVoto();
         for (Esame esame : esami) {
-            if (esame.getVoto() < minimo) {
-                minimo = esame.getVoto();
+            int voto = esame.getVoto();
+            if(minimo > voto){
+                minimo = voto;
             }
         }
         return minimo;
     }
 
-    public ArrayList<String> studentiPeggiori() {
-        int votoMinimo = 21;
+    public ArrayList<String> studentiPeggiori(){
+        int votoMinimo = votoMinimo();
         ArrayList<String> cognomiPeggiori = new ArrayList<String>();
         for (int i = 0; i < esami.size(); i++) {
             Esame esame = esami.get(i);
