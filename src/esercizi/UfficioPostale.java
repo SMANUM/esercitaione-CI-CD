@@ -39,10 +39,13 @@ public class UfficioPostale {
 
         int i = 0;
         for (Lettera let : lettere) {
-            if (let.getNomeDestinatario().equals(nome) &&
-                    let.getCognomeDestinatario().equals(cognome)) {
-                i++;
+            if(let != null){
+                if (let.getNomeDestinatario().equals(nome) &&
+                        let.getCognomeDestinatario().equals(cognome)) {
+                    i++;
+                }
             }
+
         }
         return i;
 

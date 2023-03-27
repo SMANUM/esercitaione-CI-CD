@@ -7,7 +7,7 @@ public class Applicazione {
         Lettera[] listaLettere = new Lettera[1000];
         Scanner scan = new Scanner(System.in);
         String stopCondition = "no";
-        System.out.println("Inserisci 'si' per fermarti.");
+
         int i = 0;
         Lettera lett = new Lettera();
         while (stopCondition.equals("no")) {
@@ -21,10 +21,13 @@ public class Applicazione {
             System.out.println("Inserisci un cognome destinatario: ");
             lett.setCognomeDestinatario(scan.nextLine());
             System.out.println("Inserisci 'si' per fermarti.");
+            stopCondition = scan.nextLine();
             listaLettere[i] = lett;
             i++;
         }
 
+        ufficio.setLettere(listaLettere);
+        lett = ufficio.getLettere()[0];
         // visualizza i dati di spedizione della prima lettera da consegnare
         System.out.println("Prelevamento lettera inserita: ");
 
@@ -32,7 +35,7 @@ public class Applicazione {
         System.out.println("mittente: " + lett.getNomeMittente() + lett.getCognomeMittente());
         System.out.println("destinatario: " + lett.getNomeDestinatario() + lett.getCognomeDestinatario());
 
-        ufficio.setLettere(listaLettere);
+
 
         System.out.println("Inserisci un nome destinatario da " +
                 "controllare: ");
