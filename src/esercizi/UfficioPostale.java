@@ -15,4 +15,20 @@ public class UfficioPostale {
         this.lettere = lettere;
     }
 
+    public void aggiungiLettera(Lettera lett){
+        for(int i = 0; i < lettere.length; i++){
+            if(lettere[i] == null){
+                lettere[i] = lett;
+            }
+        }
+    }
+
+    public Lettera getProssimaLettera(){
+        Lettera toSave = lettere[0];
+        for(int i = 0; i < lettere.length - 1; i++){
+            lettere[i] = lettere[i + 1];
+        }
+
+        return toSave;
+    }
 }
